@@ -1,0 +1,16 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          cognito:
+            clientId: ${CLIENT_ID}
+            clientSecret: ${CLIENT_SECRET}
+            scope: openid
+            redirect-uri: ${REDIRECT_URI}
+            clientName: ${CLIENT_NAME}
+            authorization-grant-type: authorization_code
+        provider:
+          cognito:
+            issuerUri: ${ISSUER_URI}
+            user-name-attribute: username
