@@ -25,7 +25,7 @@ public class AutenticacaoSuccessHandler implements AuthenticationSuccessHandler 
         for (GrantedAuthority auth : authentication.getAuthorities()) {
             DefaultOidcUser defaultOidcUser = (DefaultOidcUser) authentication.getPrincipal();
             Map<String, Object> userAttributes = defaultOidcUser.getAttributes();
-            this.autenticacaoService.autenticarUsuario(authentication.getName(), true);
+            //this.autenticacaoService.autenticarUsuario(authentication.getName(), true);
             System.out.println("user attribute; " + userAttributes.get("cognito:username"));
             System.out.println("user 2; " + authentication.getName());
             response.sendRedirect("/");
