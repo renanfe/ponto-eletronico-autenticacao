@@ -30,7 +30,9 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(Customizer.withDefaults())
-                .authorizeHttpRequests(request -> request.anyRequest()
+                .authorizeHttpRequests(request -> request.requestMatchers("/actuator/health")
+                        .permitAll()
+                        .anyRequest()
                         .authenticated())
                 .oauth2Login(oauth -> oauth.redirectionEndpoint(endPoint -> endPoint.baseUri("/login/oauth2/code/cognito"))
                         .userInfoEndpoint(userInfoEndpointConfig -> userInfoEndpointConfig.userAuthoritiesMapper(userAuthoritiesMapper()))
