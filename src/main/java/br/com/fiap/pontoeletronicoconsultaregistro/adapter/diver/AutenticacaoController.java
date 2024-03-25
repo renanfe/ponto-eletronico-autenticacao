@@ -1,13 +1,7 @@
 package br.com.fiap.pontoeletronicoconsultaregistro.adapter.diver;
 
-import br.com.fiap.pontoeletronicoconsultaregistro.adapter.diven.infra.entity.UserEntity;
 import br.com.fiap.pontoeletronicoconsultaregistro.core.application.service.AutenticacaoService;
-import org.apache.coyote.Response;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.UUID;
 
 @RestController("/")
 public class AutenticacaoController {
@@ -22,10 +16,4 @@ public class AutenticacaoController {
         return "Autenticado com sucesso";
     }
 
-    @GetMapping("/autenticado/{username}")
-    public ResponseEntity<UserEntity> isUsuarioAutenticado(@PathVariable String username){
-        return autenticacaoService.isUsuarioAutenticado(username)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
 }
