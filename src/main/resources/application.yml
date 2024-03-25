@@ -1,4 +1,10 @@
 spring:
+  redis:
+    database: 0
+    host: ${REDIS_HOST}
+    port: ${REDIS_PORT}
+    password: ${REDIS_PASSWORD}
+    timeout: 60000
   security:
     oauth2:
       client:

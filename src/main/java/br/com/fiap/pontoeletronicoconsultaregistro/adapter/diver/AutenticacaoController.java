@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@RestController("/v1")
+@RestController("/")
 public class AutenticacaoController {
 
     private final AutenticacaoService autenticacaoService;
@@ -22,7 +22,7 @@ public class AutenticacaoController {
         return "Autenticado com sucesso";
     }
 
-    @GetMapping("/isAuthenticado/{username}")
+    @GetMapping("/autenticado/{username}")
     public ResponseEntity<UserEntity> isUsuarioAutenticado(@PathVariable String username){
         return autenticacaoService.isUsuarioAutenticado(username)
                 .map(ResponseEntity::ok)
